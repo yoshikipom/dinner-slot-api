@@ -5,7 +5,6 @@ import com.yoshikipom.dinnerslot.domain.service.FoodCreateCommand
 import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.Options
 import org.apache.ibatis.annotations.Select
 
 @Mapper
@@ -14,7 +13,6 @@ interface FoodMapper {
     @Insert("""
         INSERT INTO food (name) VALUES (#{name})
     """)
-    @Options(useGeneratedKeys = true, keyProperty = "id")
     fun insert(foodCreateCommand: FoodCreateCommand)
 
     @Select("""
